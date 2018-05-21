@@ -1,9 +1,11 @@
 from flask import render_template
 from app import app
+from config import config
 
 @app.route('/')
 @app.route('/index')
 def index():
+        runningConfig = config.Config
         user = {'username': 'Craig'}
         posts = [ 
             {
@@ -16,5 +18,5 @@ def index():
             }
                 ]
 
-        return render_template('index.html', title='Home', user=user, posts=posts)
+        return render_template('index.html', title='Home', user=user, posts=posts, secret_key = runningConfig.SECRET_KEY)
 
