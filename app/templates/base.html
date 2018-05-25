@@ -1,17 +1,27 @@
 <html>
     <head>
-      {% if title %}
-      <title>{{ title }} - Home Automation</title>
-      {% else %}
-      <title>Welcome to Home Automation</title>
-      {% endif %}
+        {% if title %}
+        <title>{{ title }} - Mallory</title>
+        {% else %}
+        <title>Home Automation Montitor</title>
+        {% endif %}
     </head>
     <body>
-        <div>HomeAutomation: 
-	<a href="/index">Home</a>
-        Mileage Check: <a href="/miles">Miles</a>
-	<a href="/login">Login<a/></div>
+        <div>
+            HomeAutomation:
+            <a href="/index">Home</a>
+            <a href="/login">Login</a>
+        </div>
         <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>

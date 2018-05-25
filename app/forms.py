@@ -7,3 +7,9 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
+
+
+class CarForm(FlaskForm):
+    carname = StringField('Car Name',validators=(DataRequired()])
+    current_miles = StringFiled('Current Miles', validators=(DataRequired()]))
+    submit = SubmitField('Check Miles')
