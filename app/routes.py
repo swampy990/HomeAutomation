@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect
 from app import app
 from app.forms import LoginForm
+from app.forms import CarForm
 
 @app.route('/')
 @app.route('/index')
@@ -26,10 +27,10 @@ def login():
     if form.validate_on_submit():
         flash('Login Requested for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
-        return redirect('/index')
+        return redirect(url_for('index'))
     return render_template('login.html',title='Sign In', form=form)
 
-@app.route('/miles')
+@app.route('/miles', methods=['GET','POST'])
 def mileage():
     form = CarForm()
-    return render_template('miles.html', title='Mileage Tracker')
+    return render_template('miles.html', title='Mileage Tracker', form=form)

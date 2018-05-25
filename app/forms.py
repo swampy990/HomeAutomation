@@ -10,6 +10,6 @@ class LoginForm(FlaskForm):
 
 
 class CarForm(FlaskForm):
-    carname = StringField('Car Name',validators=(DataRequired()])
-    current_miles = StringFiled('Current Miles', validators=(DataRequired()]))
+    carname = StringField('Car Name',validators=[DataRequired()])
+    current_miles = StringField('Current Miles', validators=[DataRequired()])
     submit = SubmitField('Check Miles')
