@@ -1,10 +1,7 @@
 from flask import Flask
-from config import config
+from config import Config
 
 app = Flask(__name__)
-app.config.update(dict(
-    SECRET_KEY="powerful secretkey",
-    WTF_CSRF_SECRET_KEY="a csrf secret key"
-))
+app.config.from_object(Config)
 
 from app import routes

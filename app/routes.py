@@ -1,12 +1,10 @@
 from flask import render_template
 from app import app
-from config import config
 from app.forms import LoginForm
 
 @app.route('/')
 @app.route('/index')
 def index():
-        runningConfig = config.Config
         user = {'username': 'Craig'}
         posts = [ 
             {
